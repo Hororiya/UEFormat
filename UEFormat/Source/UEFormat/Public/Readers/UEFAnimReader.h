@@ -5,6 +5,7 @@
 #include "UEFModelReader.h"
 #include "Containers/Array.h"
 #include "Math/Quat.h"
+#include <vector>
 
 struct FFloatKey
 {

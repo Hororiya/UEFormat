@@ -306,7 +306,10 @@ USkeleton* UEFModelFactory::CreateSkeleton(FString Name, UObject* Parent, EObjec
 	}
 
 	for (const auto& VirtualBone : Data.VirtualBones)
-		Skeleton->AddNewNamedVirtualBone(VirtualBone.SourceBoneName.c_str(), VirtualBone.TargetBoneName.c_str(), VirtualBone.VirtualBoneName.c_str());	
+	{
+		FName NewVirtualBoneName(UTF8_TO_TCHAR(VirtualBone.VirtualBoneName.c_str()));
+		Skeleton->AddNewVirtualBone(VirtualBone.SourceBoneName.c_str(), VirtualBone.TargetBoneName.c_str(), NewVirtualBoneName);
+	}
 	
 	return Skeleton;
 }

@@ -4,6 +4,7 @@
 #include <fstream>
 #include "Math/Quat.h"
 #include "Containers/Array.h"
+#include <vector>
 
 template<typename T>
 T ReadData(std::ifstream& Ar) {
