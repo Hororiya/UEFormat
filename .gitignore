@@ -2,3 +2,7 @@
 Blender/zstd/*
 __pycache__
 /Unreal/UEFormat/Intermediate
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+io_scene_ueformat.zip
+.vscode/launch.json
