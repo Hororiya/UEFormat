@@ -145,6 +145,16 @@ UObject* UEFAnimFactory::FactoryCreateFile(UClass* Class, UObject* Parent, FName
 		FAnimationCurveIdentifier CurveIdentifier(Data.Curves[i].CurveName.c_str(), ERawCurveTrackTypes::RCT_Float);
 		Controller.AddCurve(CurveIdentifier);
 		Controller.SetCurveKeys(CurveIdentifier, RichCurves, false);
+
+		// Add the morph name to skeleton 's curve names
+		FString MorphName = Data.Curves[i].CurveName.c_str();
+		FName curveMetaName = FName(*MorphName);
+		TArray<FName> CurveNames;
+		Skeleton->GetCurveMetaDataNames(CurveNames);
+		if (!CurveNames.Contains(curveMetaName))
+		{
+			Skeleton->AddCurveMetaData(curveMetaName);
+		}
 	}
 	
 	if (!bImportAll)
