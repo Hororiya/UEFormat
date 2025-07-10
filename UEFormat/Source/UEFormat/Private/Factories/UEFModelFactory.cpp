@@ -255,7 +255,7 @@ USkeletalMesh* UEFModelFactory::CreateSkeletalMesh(TArray<FLODData>& LODData, FS
 			SkeletalAttributes.RegisterMorphTargetAttribute(*MorphName, false);
 			TVertexAttributesRef<FVector3f> OriginalVertexMorphPositionDelta = SkeletalAttributes.GetVertexMorphPositionDelta(*MorphName);
 			for (const auto& MorphDelta : MorphTarget.MorphDeltas)
-				OriginalVertexMorphPositionDelta.Set(MorphDelta.MorphVertexIndex, FVector3f(MorphDelta.MorphPosition.X, -MorphDelta.MorphPosition.Y, MorphDelta.MorphPosition.Z));
+				OriginalVertexMorphPositionDelta.Set(MorphDelta.MorphVertexIndex, FVector3f(MorphDelta.MorphPosition.X, MorphDelta.MorphPosition.Y, MorphDelta.MorphPosition.Z));
 			
 			// Add the morph name to skeleton's curve
 			FName curveMetaName = FName(*MorphName);
