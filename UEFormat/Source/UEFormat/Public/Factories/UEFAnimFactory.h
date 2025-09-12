@@ -13,7 +13,7 @@ class UEFORMAT_API UEFAnimFactory : public UFactory
 	GENERATED_UCLASS_BODY()
 
 	UPROPERTY()
-	UEFAnimImportOptions* SettingsImporter;
+	TObjectPtr<UEFAnimImportOptions> SettingsImporter;
 	bool bImport;
 	bool bImportAll;
 
